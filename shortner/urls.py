@@ -9,6 +9,6 @@ urlpatterns = [
      path('edit/<str:slug>', views.update_url, name='edit'),
     path('disable/<int:id>', views.disable_url,name='disable'),
     path('delete/<str:slug>', views.delete_url, name='delete'),
-    path('<str:slug>', views.exit, name='exit'),
+    # path('<str:slug>', views.exit, name='exit'),
     
 ]
