@@ -30,8 +30,12 @@ def createurl(request):
 
 
 def exit(request, slug):
-    url = Short_url.objects.get(slug=slug)
-    return redirect(url.url)
+    try:
+        url = Short_url.objects.get(slug=slug)
+        url = url.url
+    except:
+        url  = 'home'
+    return redirect(url)
 
   
 
