@@ -47,4 +47,3 @@ urlpatterns = [
 #     )
 
 
-+ staticfiles_urlpatterns()
