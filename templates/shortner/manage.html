@@ -34,7 +34,7 @@
                     <td>{{forloop.counter}}</td>
                     <td><li style="list-style:none;" class="text-secondary" >localhost:8000/{{data.slug}}</li></td>
                     <td>
-                        <button disabled class="btn btn-secondary rounded-pill btn-sm" href="{% url 'disable' data.id %}">Disabled</button>
+                        <button disabled class="btn btn-secondary rounded-pill btn-sm" href="{% url 'disable' data.slug %}">Disabled</button>
                     </td>
                 </tr>
                 {% endif %}
