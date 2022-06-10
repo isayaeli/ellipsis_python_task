@@ -36,7 +36,7 @@ urlpatterns = [
 
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name='userauth/password_reset_complete.html'), name="password_reset_complete"),
-]
+]+ staticfiles_urlpatterns()
 
 # if settings.DEBUG:
 #     urlpatterns += static(
