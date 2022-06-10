@@ -1,0 +1,108 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    height: 80px;
+    background-color: #ffb005;
+    width: 100%;
+    display: inline-flex;
+}
+
+.left-item{
+    float: left;
+    margin-top: 28px;
+    margin-left: 40px;
+}
+.left-item li{
+    list-style: none;
+    
+}
+.left-item li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+}
+.right-item{
+    float: right;
+    right: 40px;
+    display: inline-flex;
+    position: absolute;
+    margin-top: 28px;
+}
+.right-item li{
+    margin-left: 30px;
+    list-style: none;
+    color: white;
+    font-weight: 900;
+}
+.right-item li a{
+    color: white;
+    font-weight: 900;
+}
+
+.form{
+    background-color: #fffbf0;
+    width: 800px;
+    height: 300px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    margin-top: 5%;
+    margin-left: 20%;
+    border-radius: 8px;
+}
+
+.form form{
+    padding-top: 5%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.form form input{
+    height: 50px;
+}
+.form form button{
+    width: 100%;
+}
+
+.card{
+    height: 400px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.profile{
+    margin-left: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.profile ul{
+    margin-left: 0;
+    list-style: none;
+}
+.profile ul li{
+    font-weight: bolder;
+}
+
+
+.login-form{
+    background-color: #fffbf0;
+    width: 800px;
+    height: 300px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    margin-top: 5%;
+    margin-left: 20%;
+    border-radius: 8px;
+}
+
+.login-form form{
+    padding-top: 3%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.login-form form input{
+    height: 50px;
+}
+.login-form form button{
+    width: 100%;
+}

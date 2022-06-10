@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section id="form" >
+    <div class="container">
+        <div class="login-form" >
+            <form  method="post" role="form" class="form-group">
+                {% csrf_token %}
+                {% if request.GET.next %}
+                  <input type="hidden" class="form-control" name="next" value="{{request.GET.next}}">
+                {% endif %}
+                <div class="form-group mt-3">
+                  <input style="height: 50px;" type="text" name="username" class="form-control" id="name" placeholder="User Name" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input style="height: 50px;" type="password" class="form-control" name="password" id="email" placeholder="Your Password" required>
+                </div>
+              
+                <div class="text-center mt-3">
+                  <button style="width: 100%;" class="btn btn-warning btn-lg rounded-pill " type="submit">Login</button>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mt-3">
+                    Don't have an account? <a href="{% url 'register' %}">Register Here</a>
+                  </div>
+                  <div class="col-md-6 mt-3">
+                    Forgot password? <a href="{% url 'password_reset' %}">Reset Here</a>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+</section>
+{% endblock contents %}

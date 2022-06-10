@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section id="form" >
+    <div class="container">
+        <div class="form" >
+            <form action="{% url 'edit' data.slug %}" method="post">
+                {% csrf_token %}
+                <input name="url" class="form-control" type="text" value="{{data.url}}" >
+                <input class="form-control mt-3" type="text" disabled value="localhost:8000/{{data.slug}}">
+                <button type="submit" class="btn btn-warning mt-5 rounded-pill" >Update Url</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock contents %}

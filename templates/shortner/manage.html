@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <th>#</th>
+                    <th>URL</th>
+                    <th>Action</th>
+                </thead>
+                {% for data in urls %}
+                {% if data.status == 'Active' and data.disabled == False %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><a class="text-primary" href="{{data.url}}">localhost:8000/{{data.slug}}</a></td>
+                    <td>
+                        <a class=" btn btn-warning rounded-pill btn-sm" href="{% url 'edit' data.slug %}">update</a>
+                        <a class="btn btn-danger rounded-pill btn-sm" href="{% url 'delete' data.slug %}">delete</a>
+                        <a class="btn btn-secondary rounded-pill btn-sm" href="{% url 'disable' data.slug %}">Disable</a>
+                    </td>
+                </tr>
+                {% elif data.status == "Expired" %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><li style="list-style:none;" class="text-secondary" >localhost:8000/{{data.slug}}</li></td>
+                    <td>
+                        <button disabled class="btn btn-secondary rounded-pill btn-sm" href="{% url 'delete' data.slug %}">Expired</button>
+                    </td>
+                </tr>
+                {% elif data.disabled == True %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><li style="list-style:none;" class="text-secondary" >localhost:8000/{{data.slug}}</li></td>
+                    <td>
+                        <button disabled class="btn btn-secondary rounded-pill btn-sm" href="{% url 'disable' data.id %}">Disabled</button>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class=" profile" >
+                <img height="100" width="100" style="border-radius:50px;" src="{{request.user.profile.image.url}}" alt="">
+                <ul>
+                    <li>Username: {{request.user.username}}</li>
+                    <li>Email: {{ request.user.email }}</li>
+                </ul>
+                <a class="btn btn-warning rounded-pill btn-sm" href="{% url 'profile' %}">Update Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+{% for data in urls %}
+<div class="modal fade" id="edit{{data.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+      </div>
+      <div class="modal-body">
+        <form action=""method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+           <div style="width:100%;">
+                <div class="mb-3">
+                  <input type="text" value="{{data.url}}">
+                </div>
+           <div class="modal-footer">
+              <button style="width:70%; background-color: green;" type="submit" class="btn btn-success ml-4 mr-4 rounded-pill">UPDATE A POST</button>
+              <a type="button" class="btn btn-secondary text-white rounded-pill" data-dismiss="modal">Close</a>
+            </div>
+        </form>  
+      </div> 
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    function refresh() {
+    $.ajax({
+      url: "{% url 'manage' %}",
+      success: function(data) {
+          
+      console.log(data)
+        }
+        });
+    };
+    $(function(){
+        refresh();
+        var int = setInterval("refresh()", 5000);
+    
+    });
+</script>
+
+
+
+
+{% endblock contents %}

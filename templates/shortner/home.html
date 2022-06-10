@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+<section id="form" >
+    <div class="container">
+        <div class="form" >
+            <form action="{% url 'create' %}" method="post">
+                {% csrf_token %}
+                <label for="">Expiration Time</label>
+                <input type="date" class="form-control mb-3" name="expiration_date"  >
+                <input name="url" class="form-control" type="text" placeholder="Enter Url" >
+                <button type="submit" class="btn btn-warning mt-3 rounded-pill" >Shorten Url</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock contents %}
