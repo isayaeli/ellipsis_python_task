@@ -17,7 +17,7 @@
                     <td><a class="text-primary" href="{{data.url}}">localhost:8000/{{data.slug}}</a></td>
                     <td>
                         <a class=" btn btn-warning rounded-pill btn-sm" href="{% url 'edit' data.slug %}">update</a>
-                        <a class="btn btn-danger rounded-pill btn-sm" href="{% url 'delete' data.slug %}">delete</a>
+                        <a class="btn btn-danger rounded-pill btn-sm" href="{% url 'delete' data.id %}">delete</a>
                         <a class="btn btn-secondary rounded-pill btn-sm" href="{% url 'disable' data.slug %}">Disable</a>
                     </td>
                 </tr>
@@ -26,7 +26,7 @@
                     <td>{{forloop.counter}}</td>
                     <td><li style="list-style:none;" class="text-secondary" >localhost:8000/{{data.slug}}</li></td>
                     <td>
-                        <button disabled class="btn btn-secondary rounded-pill btn-sm" href="{% url 'delete' data.slug %}">Expired</button>
+                        <button disabled class="btn btn-secondary rounded-pill btn-sm" href="{% url 'delete' data.id %}">Expired</button>
                     </td>
                 </tr>
                 {% elif data.disabled == True %}

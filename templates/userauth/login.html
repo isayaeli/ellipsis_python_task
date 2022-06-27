@@ -4,6 +4,22 @@
 <section id="form" >
     <div class="container">
         <div class="login-form" >
+          <div class="mb-3" >
+            {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'success' %}
+              <div class="alert alert-success text-center " role="alert">
+              {{message}}
+              </div>
+            {% endif %}
+            {% if message.tags == 'error' %}
+              <div class="alert alert-danger text-center " role="alert">
+              {{message}}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+          </div>
             <form  method="post" role="form" class="form-group">
                 {% csrf_token %}
                 {% if request.GET.next %}
